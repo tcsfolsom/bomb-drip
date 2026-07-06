@@ -1,0 +1,49 @@
+html {
+    font-family: arial
+}
+
+body {
+    background: pink
+}
+
+.drip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    gap: 5px
+}
+
+.drip>div {
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    transition: width 0.3s ease-out, height 0.3s ease-out;
+}
+
+.drip>div:hover {
+    width: 250px;
+    height: 250px;
+}
+
+.drip>div>img {
+    max-width: 100%;
+    max-height: 75%;
+    border: 3px solid #b08080;
+    border-radius: 25px;
+    padding: 3%;
+    background: white;
+}
+
+.drip>div>p {
+    color: green;
+    margin: -2% 0 0 0
+}
+
+#footer {
+    text-align: center
+}
+
+h1 {
+    color: #3ebecf
+}
