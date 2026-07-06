@@ -14,19 +14,18 @@ body {
     gap: 5px
 }
 
-.drip>div {
+.item {
     text-align: center;
     width: 200px;
     height: 200px;
-    transition: width 0.3s ease-out, height 0.3s ease-out;
+    transition: transform 0.3s ease-out;
 }
 
-.drip>div:hover {
-    width: 250px;
-    height: 250px;
+.item:hover {
+    transform:scale(1.25)
 }
 
-.drip>div>img {
+.item>img {
     max-width: 100%;
     max-height: 75%;
     border: 3px solid #b08080;
@@ -35,9 +34,13 @@ body {
     background: white;
 }
 
-.drip>div>p {
-    color: green;
+.item>p {
     margin: -2% 0 0 0
+}
+
+.merch>div>p {
+    color: green;
+    margin: -2% 0 0 0;
 }
 
 #footer {
