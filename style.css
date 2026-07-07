@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background: pink
+    background: rgb(13, 200, 247)
 }
 
 .drip {
@@ -41,6 +41,7 @@ body {
 .merch>div>p {
     color: green;
     margin: -2% 0 0 0;
+    display-size 5px
 }
 
 #footer {
@@ -48,5 +49,5 @@ body {
 }
 
 h1 {
-    color: #3ebecf
+    color: pink
 }
