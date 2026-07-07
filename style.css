@@ -67,6 +67,10 @@ align-items: center;
 #footer {
     text-align: center
 }
+#footer>img{
+    max-width: 98%;
+    border-radius: 30px;
+}
 
 h1 {
     color: pink
@@ -80,4 +84,12 @@ h1 {
 
 .cart>p{
     font-size:2em
+}
+
+.div>p{
+    fon-size: 300px;
+}
+
+#ad {
+    color: #f906f1
 }
