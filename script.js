@@ -10,21 +10,22 @@ console.log(storage)
 let cart = document.createElement("div")
 cart.className = "cart"
 let p = document.createElement("p")
-p.textContent = "🛒"
+p.id = "total"
 cart.appendChild(p)
 document.body.insertBefore(cart, document.body.children[1])
+updatetotal()
 
 for (let [source, price] of storage) {
     let div = document.createElement("div")
     div.className = "cartitem"
 
-    let bottom=document.createElement("div")
+    let bottom = document.createElement("div")
 
     let img = document.createElement("img")
     img.src = source
 
     let p = document.createElement("p")
-    p.textContent = "$" + price.toString()
+    p.textContent = "$" + price.toFixed(2)
 
     div.appendChild(img)
     bottom.appendChild(p)
@@ -39,9 +40,9 @@ function addtocart(div) {
     item.className = "cartitem"
 
     let image = div.children[0].src
-    let price = parseFloat(div.children[1].textContent.substring(1))
+    let price = parseFloat(div.children[1].textContent.substring(1).replaceAll(",",""))
 
-    let bottom=document.createElement("div")
+    let bottom = document.createElement("div")
     bottom.appendChild(div.children[1])
     bottom.appendChild(maketrash())
     item.children[1].remove()
@@ -49,6 +50,7 @@ function addtocart(div) {
 
     storage.push([image, price]);
     localStorage.setItem("cart", JSON.stringify(storage))
+    updatetotal()
 
     cart.appendChild(item)
 }
@@ -64,7 +66,16 @@ function maketrash() {
                 storage.splice(i, 1)
             }
         }
+        updatetotal()
         localStorage.setItem("cart", JSON.stringify(storage))
     })
     return trash
+}
+
+function updatetotal() {
+    let total = 0
+    for (let [source, price] of storage) {
+        total += price
+    }
+    document.getElementById("total").textContent = "🛒$" + total.toFixed(2)
 }
