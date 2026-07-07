@@ -1,8 +1,11 @@
 let storage = localStorage.getItem("cart")
-if (storage == null) {
+console.log(storage)
+if (storage === null) {
     storage = "[]"
 }
+console.log(storage)
 storage = JSON.parse(storage)
+console.log(storage)
 
 let cart = document.createElement("div")
 cart.className = "cart"
@@ -15,6 +18,8 @@ for (let [source, price] of storage) {
     let div = document.createElement("div")
     div.className = "cartitem"
 
+    let bottom=document.createElement("div")
+
     let img = document.createElement("img")
     img.src = source
 
@@ -22,8 +27,9 @@ for (let [source, price] of storage) {
     p.textContent = "$" + price.toString()
 
     div.appendChild(img)
-    div.appendChild(p)
-    div.appendChild(maketrash())
+    bottom.appendChild(p)
+    bottom.appendChild(maketrash())
+    div.appendChild(bottom)
     cart.appendChild(div)
 }
 
@@ -32,14 +38,17 @@ function addtocart(div) {
     item.onclick = null
     item.className = "cartitem"
 
-    item.appendChild(maketrash())
-
     let image = div.children[0].src
     let price = parseFloat(div.children[1].textContent.substring(1))
-    let storage = JSON.parse(localStorage.getItem("cart"))
+
+    let bottom=document.createElement("div")
+    bottom.appendChild(div.children[1])
+    bottom.appendChild(maketrash())
+    item.children[1].remove()
+    item.appendChild(bottom)
+
     storage.push([image, price]);
     localStorage.setItem("cart", JSON.stringify(storage))
-
 
     cart.appendChild(item)
 }
@@ -48,12 +57,11 @@ function maketrash() {
     let trash = document.createElement("button")
     trash.textContent = "🗑️"
     trash.addEventListener("click", function (ev) {
-        let source=ev.target.parentElement.children[0].src
-        ev.target.parentElement.remove()
-        let storage = JSON.parse(localStorage.getItem("cart"))
-        for(let i=0;i<storage.length;i++){
-            if(storage[i][0]==source){
-                storage.splice(i,1)
+        let source = ev.target.parentElement.parentElement.children[0].src
+        ev.target.parentElement.parentElement.remove()
+        for (let i = 0; i < storage.length; i++) {
+            if (storage[i][0] == source) {
+                storage.splice(i, 1)
             }
         }
         localStorage.setItem("cart", JSON.stringify(storage))
