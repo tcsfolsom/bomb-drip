@@ -1,0 +1,15 @@
+button {
+    background-color: aqua;
+    border-radius: 25px;
+    border-color: blue;
+    font-size: 20px;
+}
+
+button:active{
+    transform: scale(.9);
+}
+
+html {
+    background-color: #ea00ff;
+
+}
