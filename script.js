@@ -54,7 +54,7 @@ function addtocart(div) {
     let price = parseFloat(div.children[1].textContent.substring(1).replaceAll(",",""))
 
     let bottom = document.createElement("div")
-    bottom.appendChild(div.children[1])
+    bottom.appendChild(div.children[1].cloneNode(true))
     bottom.appendChild(maketrash())
     item.children[1].remove()
     item.appendChild(bottom)
