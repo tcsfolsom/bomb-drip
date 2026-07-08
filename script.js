@@ -9,9 +9,20 @@ console.log(storage)
 
 let cart = document.createElement("div")
 cart.className = "cart"
+
+let cartleft = document.createElement("div")
+
 let p = document.createElement("p")
 p.id = "total"
-cart.appendChild(p)
+cartleft.appendChild(p)
+
+let checkout=document.createElement("a")
+checkout.href="checkout.html"
+checkout.textContent="checkout"
+cartleft.appendChild(checkout)
+
+cart.appendChild(cartleft)
+
 document.body.insertBefore(cart, document.body.children[1])
 updatetotal()
 
@@ -78,4 +89,12 @@ function updatetotal() {
         total += price
     }
     document.getElementById("total").textContent = "🛒$" + total.toFixed(2)
+}
+
+function checkedout(){
+    let params=new URLSearchParams(window.location.search)
+    document.getElementById("name").textContent = params.get("name")
+    document.getElementById("address").textContent = params.get("address")
+    storage =[]
+    localStorage.setItem("cart", JSON.stringify(storage))
 }

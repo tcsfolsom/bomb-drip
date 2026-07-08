@@ -6,6 +6,12 @@ body {
     background: rgb(13, 200, 247)
 }
 
+form{
+    
+display:flex;
+flex-direction: column;
+}
+
 .drip {
     display: flex;
     flex-wrap: wrap;
@@ -65,6 +71,7 @@ align-items: center;
 }
 
 #footer {
+    margin-top: 1em;
     text-align: center
 }
 #footer>img{
@@ -80,14 +87,15 @@ h1 {
     display: flex;
     overflow-x: auto;
     gap: 1em;
+    align-items: center;
 }
 
-.cart>p{
+.cart>div>p{
     font-size:2em
 }
 
 .div>p{
-    fon-size: 300px;
+    font-size: 300px;
 }
 
 #ad {
