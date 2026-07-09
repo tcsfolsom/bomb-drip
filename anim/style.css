@@ -1,0 +1,34 @@
+body {
+    display: flex;
+    gap: 1em
+}
+
+.item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background: cadetblue;
+    width: 4em;
+    height: 4em;
+    text-align: center;
+    transition: transform 2s, background 2s, color 2s;
+}
+
+.spin:hover {
+    transform: rotate(360deg);
+}
+
+.color:hover {
+    background: red;
+}
+
+.text:hover {
+    color: aqua
+}
+.shrink:hover {
+    transform: scale(0.5);
+}
+.grow:hover {
+    transform: scale(1.5);
+}

@@ -25,7 +25,6 @@ display:flex;
 flex-direction: column;
 align-items: center;
     width: 150px;
-    height: 150px;
 }
 
 .item {
@@ -87,7 +86,7 @@ h1 {
     display: flex;
     overflow-x: auto;
     gap: 1em;
-    align-items: center;
+    align-items:baseline;
 }
 
 .cart>div>p{
@@ -100,4 +99,8 @@ h1 {
 
 #ad {
     color: #f906f1
+}
+
+#total{
+    margin:0
 }
